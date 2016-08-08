@@ -22,5 +22,9 @@ module LoveLetterCardGame
     def ended?
       players.any?{|player| player.token_count == required_token_count}
     end
+
+    def winner
+      players.detect{|player| player.token_count == required_token_count}
+    end
   end
 end

@@ -4,5 +4,15 @@ require "love_letter_card_game/player"
 require "love_letter_card_game/deck"
 
 module LoveLetterCardGame
-  # Your code goes here...
+  class TwoPlayerGame
+    TOKENS_REQUIRED_TO_WIN_GAME = 7
+  end
+
+  class ThreePlayerGame
+    TOKENS_REQUIRED_TO_WIN_GAME = 5
+  end
+
+  class FourPlayerGame
+    TOKENS_REQUIRED_TO_WIN_GAME = 4
+  end
 end

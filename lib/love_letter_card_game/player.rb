@@ -10,5 +10,11 @@ module LoveLetterCardGame
     def draw
       self.current_card = game.deck.shift
     end
+
+    def out?
+    end
+
+    def token_count
+    end
   end
 end

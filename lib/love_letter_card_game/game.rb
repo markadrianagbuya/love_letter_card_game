@@ -1,17 +1,18 @@
 module LoveLetterCardGame
   class Game
 
-    attr_accessor :deck, :players
+    attr_accessor :deck, :players, :required_token_count
 
     def self.setup(number_of_players: 0)
       deck = Deck.full_deck
       deck.delete_at(rand(deck.size))
-      self.new(players: number_of_players, deck: deck)
+      self.new(players: Array.new(number_of_players) {Player.new(self)}, deck: deck)
     end
 
-    def initialize(players: 0, deck: [])
-      self.players = Array.new(players) {Player.new(self)}
+    def initialize(players: [], deck: [], required_token_count: 0)
+      self.players = players
       self.deck = deck
+      self.required_token_count = required_token_count
     end
 
     def get_player(player_number)
@@ -19,7 +20,7 @@ module LoveLetterCardGame
     end
 
     def ended?
-      deck.size == 0
+      players.any?{|player| player.token_count == required_token_count}
     end
   end
 end

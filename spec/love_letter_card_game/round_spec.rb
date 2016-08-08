@@ -37,7 +37,7 @@ module LoveLetterCardGame
       it "is false when more than one player is still in" do
         players = [instance_double(LoveLetterCardGame::Player, out?: false), instance_double(LoveLetterCardGame::Player, out?: false)]
         round = Round.new(players: players, deck: [:guard])
-        expect(round.ended?).to eq false
+        expect(round.winner).to eq nil
       end
     end
   end

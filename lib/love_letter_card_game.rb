@@ -2,6 +2,7 @@ require "love_letter_card_game/version"
 require "love_letter_card_game/game"
 require "love_letter_card_game/player"
 require "love_letter_card_game/deck"
+require "love_letter_card_game/round"
 
 module LoveLetterCardGame
   class TwoPlayerGame

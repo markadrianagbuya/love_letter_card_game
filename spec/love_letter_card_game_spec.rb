@@ -22,4 +22,10 @@ describe LoveLetterCardGame do
     expect(deck.size).to eq 15
     expect(game.players.size).to eq 3
   end
+
+  it "is ended when the deck is empty" do
+    game = LoveLetterCardGame::Game.new(players: 2, deck: [])
+    expect(game.ended?).to eq true
+  end
+
 end

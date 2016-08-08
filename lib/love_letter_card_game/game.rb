@@ -18,5 +18,8 @@ module LoveLetterCardGame
       players[player_number-1]
     end
 
+    def ended?
+      deck.size == 0
+    end
   end
 end

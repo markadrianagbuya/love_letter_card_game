@@ -10,5 +10,11 @@ module LoveLetterCardGame
     def ended?
       deck.empty? || players.reject(&:out?).count == 1
     end
+
+    def winner
+      if players.reject(&:out?).count == 1
+        players.detect{|player| !player.out?}
+      end
+    end
   end
 end

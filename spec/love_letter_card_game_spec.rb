@@ -14,4 +14,12 @@ describe LoveLetterCardGame do
     expect(player_1.current_card).to eq :guard
     expect(game.deck).to eq [:princess]
   end
+
+  it "can setup a new game" do
+    game = LoveLetterCardGame::Game.setup(number_of_players: 3)
+    deck = game.deck
+
+    expect(deck.size).to eq 15
+    expect(game.players.size).to eq 3
+  end
 end

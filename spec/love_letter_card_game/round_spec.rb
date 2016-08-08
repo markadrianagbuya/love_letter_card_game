@@ -8,8 +8,20 @@ module LoveLetterCardGame
         expect(round.ended?).to eq true
       end
 
-      it "returns true if deck contains no cards" do
+      it "returns false if deck contains cards" do
         round = Round.new(deck: [:guard], players: [])
+        expect(round.ended?).to eq false
+      end
+
+      it "is true when all but one players are out" do
+        players = [instance_double(LoveLetterCardGame::Player, out?: true), instance_double(LoveLetterCardGame::Player, out?: false)]
+        round = Round.new(players: players, deck: [:guard])
+        expect(round.ended?).to eq true
+      end
+
+      it "is false when more than one player is still in" do
+        players = [instance_double(LoveLetterCardGame::Player, out?: false), instance_double(LoveLetterCardGame::Player, out?: false)]
+        round = Round.new(players: players, deck: [:guard])
         expect(round.ended?).to eq false
       end
     end

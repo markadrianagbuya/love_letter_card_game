@@ -65,6 +65,18 @@ module LoveLetterCardGame
       end
     end
 
+    describe '#discard' do
+      it "discards the card and applies the effect" do
+        player_1 = LoveLetterCardGame::Player.new(letter_holders: [:princess, :guard])
+        round = Round.new(players: [player_1], deck: [])
+
+        round.discard(player_1, :princess, {})
+
+        expect(round.letter_holders_for(player_1)).to eq [:guard]
+        expect(round.discarded_letter_holders_for(player_1)).to eq [:princess]
+      end
+    end
+
     # describe "guard scenario" do
 
     #   player_1 = instance_double(LoveLetterCardGame::Player, out?: false)

@@ -25,6 +25,14 @@ module LoveLetterCardGame
       player.draw(deck)
     end
 
+    def discard(player, card_to_be_discarded, params)
+      player.discard(card_to_be_discarded)
+    end
+
+    def discarded_letter_holders_for(player)
+      player.discarded_letter_holders
+    end
+
     def letter_holders_for(player)
       player.letter_holders
     end

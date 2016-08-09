@@ -53,6 +53,18 @@ module LoveLetterCardGame
       end
     end
 
+    describe '#take_turn' do
+      it "draws a card the player" do
+        player_1 = LoveLetterCardGame::Player.new
+        player_2 = LoveLetterCardGame::Player.new
+        round = Round.new(players: [player_1, player_2], deck: [:princess, :priest, :guard])
+        round.start
+        expect(round.letter_holders_for(player_1)).to eq [:princess]
+        round.take_turn(player_1)
+        expect(round.letter_holders_for(player_1)).to eq [:princess, :guard]
+      end
+    end
+
     # describe "guard scenario" do
 
     #   player_1 = instance_double(LoveLetterCardGame::Player, out?: false)

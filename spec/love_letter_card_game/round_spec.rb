@@ -40,6 +40,31 @@ module LoveLetterCardGame
         expect(round.winner).to eq nil
       end
     end
+    describe '#start' do
+      it "draws a card for each player" do
+        player_1 = LoveLetterCardGame::Player.new
+        player_2 = LoveLetterCardGame::Player.new
+        round = Round.new(players: [player_1, player_2], deck: [:guard, :priest])
+        expect(round.letter_holders_for(player_1)).to eq []
+        expect(round.letter_holders_for(player_2)).to eq []
+        round.start
+        expect(round.letter_holders_for(player_1)).to eq [:guard]
+        expect(round.letter_holders_for(player_2)).to eq [:priest]
+      end
+    end
+
+    # describe "guard scenario" do
+
+    #   player_1 = instance_double(LoveLetterCardGame::Player, out?: false)
+    #   player_2 = instance_double(LoveLetterCardGame::Player, out?: false)
+    #   round = Round.new(deck: [:guard, :princess], players: [player_1, player_2])
+
+    #   round.take_turn(player_1)
+    #   round.discard(:guard, {target_opponent: player_2, guess: :princess})
+    #   expect(round.out_of_round?(player_2)).to eq true
+    #   expect(round.ended?).to eq true
+    # end
+
   end
 end
 

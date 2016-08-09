@@ -16,5 +16,13 @@ module LoveLetterCardGame
         players.detect{|player| !player.out?}
       end
     end
+
+    def start
+      players.each{|player| player.draw(deck)}
+    end
+
+    def letter_holders_for(player)
+      player.letter_holders
+    end
   end
 end

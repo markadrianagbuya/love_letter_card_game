@@ -6,13 +6,18 @@ describe LoveLetterCardGame do
   end
 
   # it 'is a playable game' do
-  #   deck = [:guard, :princess]
-  #   player_1 = Player.new
-  #   player_2 = game.get_player(2)
-  #   game = LoveLetterCardGame::Game.new(players: [, deck: deck)
-  #   player_1.draw
-  #   expect(player_1.current_card).to eq :guard
-  #   expect(game.deck).to eq [:princess]
+  #   deck = [LETTER_HOLDERS[:guard], LETTER_HOLDERS[:princess], [LETTER_HOLDERS[:priest]]
+  #   player_1 = Suitor.new
+  #   player_2 = Suitor.new
+  #   game = LoveLetterCardGame::Game.new(players: [player_1, player_2], deck: deck)
+  #   round = game.start_round
+  #   expect(player_1.letter_holders).to include(LETTER_HOLDERS[:guard])
+  #   player_1.draw(round)
+  #   expect(player_1.letter_holders).to include(LETTER_HOLDERS[:guard], LETTER_HOLDERS[:priest])
+  #   player_1.discard(:guard, {target_opponent: player_2, guessed_letter_holder: :princess})
+  #   expect(player_2.out_of_round?(round)).to eq true
+  #   expect(round.ended?).to eq true
+  #   expect(round.winner).to eq player_1
   # end
 
   # it "can setup a new game" do

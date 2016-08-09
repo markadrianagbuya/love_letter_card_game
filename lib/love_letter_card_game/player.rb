@@ -1,14 +1,14 @@
 module LoveLetterCardGame
   class Player
 
-    attr_accessor :game, :current_card
+    attr_accessor :letter_holders
 
-    def initialize(game)
-      self.game = game
+    def initialize
+      self.letter_holders = []
     end
 
-    def draw
-      self.current_card = game.deck.shift
+    def draw(deck)
+      letter_holders << deck.shift
     end
 
     def out?
